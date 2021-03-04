@@ -1,0 +1,14 @@
+userClass: user
+codeName: MyApp
+template:
+  dir: /home/yisroel/packages/packrat-ts-all/packrat
+  name: null
+  version: 1
+starter: /home/yisroel/packages/barbells-all/barbells.starter
+general:
+  packageName: barbells
+  author: YizYah
+  owner: YizYah
+  repositoryName: barbells
+  license: MIT
+  multi: true

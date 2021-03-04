@@ -1,0 +1,31 @@
+{
+  "addedCode": {
+    "standard": {
+      ".eslintrc.js": {
+        "path": ".eslintrc.js",
+        "lintRules": "\n        \"no-console\": [\"error\"],\n        \"@typescript-eslint/no-var-requires\": \"off\",\n        \"@typescript-eslint/explicit-module-boundary-types\": \"off\",\n        \"@typescript-eslint/ban-types\": \"off\",\n        \"@typescript-eslint/no-explicit-any\":\"off\",\n        \"@typescript-eslint/ban-ts-comment\": \"off\"\n        "
+      },
+      "README.md": {
+        "path": "README.md",
+        "beginning": "\n",
+        "description": "\nbarbells\n======\n\n",
+        "afterDescription": "\n",
+        "badges": "\n\n[//]: # ( ns__start_section usageSection )\n\n[![Version](https://img.shields.io/npm/v/barbells.svg)](https://npmjs.org/package/barbells)\n[![Downloads/week](https://img.shields.io/npm/dw/barbells.svg)](https://npmjs.org/package/barbells)\n[![License](https://img.shields.io/npm/l/barbells.svg)](https://github.com/YizYah/barbells/blob/master/package.json)\n\n[![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)\n[![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)\n",
+        "APIIntro": "\n# API\n",
+        "constantsIntro": "\n## General Constants and Commands\n"
+      },
+      "src/index.ts": {
+        "path": "src/index.ts",
+        "beginning": "\nconst {loadFileTemplate} = require('./custom/loadFileTemplate')\nconst {prepareHandlebars} = require('./custom/prepareHandlebars')\n",
+        "export": "\n    // replace this with your own export\n    module.exports = {\n        loadFileTemplate,\n        prepareHandlebars,\n    }\n    "
+      },
+      "test/index.test.ts": {
+        "path": "test/index.test.ts",
+        "customImports": "\n",
+        "general": "\ntest('general', t => {\n  // replace with whatever you'd like.  To start over with the default, remove everything including the\n});\n"
+      }
+    }
+  },
+  "replacedCode": {},
+  "removedCode": {}
+}
