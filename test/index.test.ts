@@ -9,6 +9,6 @@ const output = require('../src/index')
 
 /* ns__custom_start general */
 test('general', t => {
-  // replace with whatever you'd like.  To start over with the default, remove everything including the
+  t.not(typeof output, "undefined")
 });
 /* ns__custom_end general */
