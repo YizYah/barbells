@@ -1,6 +1,6 @@
 {
   "name": "barbells",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "simple management of helpers and partials for handlebars",
   "main": "lib/index.js",
   "scripts": {
