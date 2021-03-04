@@ -1,10 +1,11 @@
 import {expandNsAbbreviations} from './expandNsbbreviations'
-const {fileMatchesCustomFileFilter} = require('magicalstrings').fileMatchesCustomFileFilter
-import {Configuration}  from 'magicalstrings'
+// const {fileMatchesCustomFileFilter} = require('magicalstrings').fileMatchesCustomFileFilter
+// import {Configuration}  from 'magicalstrings'
+const minimatch = require('minimatch')
 const fs = require('fs-extra')
 
 export async function loadFileTemplate(
-  pathString: string, config: Configuration|null, Handlebars: any, noFileInfo = false
+  pathString: string, Handlebars: any, fileFilter: string|null, noFileInfo = false
 ) {
   // noFileInfo suppresses generation of a file info tag at the beginning of the template.
   let template = ''
@@ -12,8 +13,10 @@ export async function loadFileTemplate(
   try {
     template = await fs.readFile(pathString, 'utf-8')
     if (!noFileInfo &&
-      config &&
-      fileMatchesCustomFileFilter(pathString.slice(0, -4), config)
+      fileFilter &&
+      minimatch(
+        pathString.slice(0, -4), fileFilter, {dot: true, matchBase: true}
+      )
     ) {
       template = '{{nsFile}}\n' + template // add file info automatically.
     }

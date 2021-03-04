@@ -1,7 +1,7 @@
 {
   "name": "barbells",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple management of helpers and partials for handlebars",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
@@ -12,6 +12,9 @@
     "prepack": "rm -rf lib && tsc -b"
   },
   "keywords": [
+    "handlebars",
+    "helpers",
+    "partials",
     "ts-packrat"
   ],
   "author": "YizYah",
