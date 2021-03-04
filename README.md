@@ -45,10 +45,8 @@ simple management of helpers and partials for handlebars
 # What
 A tool that provides:
    1. the standard libraries of helpers out of the box
-   2. folders to add custom helpers and partials
+   2. automatic registration of custom helpers and partials
    3. a tool for loading a template from a file.
-
-The helpers provided are the ones in 
 
 # Basic Usage
 Include the package:
@@ -57,7 +55,7 @@ npm i barbells
 ```
 
 Then:
-1. create a handlebars instance with all of the handlebars helpers and partials for the project;
+1. create a handlebars instance with all the handlebars helpers and partials for the project;
 2. use it by loading a template from a file.
 ```
 const {prepareHandlebars} = require('barbells')
@@ -79,11 +77,13 @@ const fileText = await fileTemplate(context)
 * [handlebars-helpers](https://www.npmjs.com/package/handlebars-helpers)
 * [just-handlebars-helpers](https://www.npmjs.com/package/just-handlebars-helpers)
 
-  For instance, `{{capitalizeFirst 'just wow'}}` produces `Just wow` and `{{and value1 value2}}` will result in the `value1 && value2` (useful for `{{#if}} for instance).
+  For instance, `{{capitalizeFirst 'super cat'}}` produces `Super cat` and `{{and value1 value2}}` will result in the `value1 && value2`.
 
 2. There are a few added helpers, really just for legacy usage:
     * `{{safe text}}` shows `text` without escape characters.  That is helpful if you are getting unwanted escapes of certain special characters such as quote marks.
     * `{{curly true}}` produces a left curly brace `{`,  {{curly false}} returns `}`.
+    
+  And if you want to use this with a [geenee](https://www.npmjs.com/package/geenee) template you can add the [geenee abbreviations](https://geenee.nostack.net/Making-Files-Customizable) as well.
     
 # Adding Helpers
 3. The `helpers` directory should contain any additional helpers that you create.  Since `geenee-rate` is written with typescript, your helpers should be in typescript as well, with a `.ts` extension.
@@ -104,7 +104,7 @@ You have access everywhere to the full list of partials in the `partials` direct
 prepareHandlebars(projectDir: string) 
 ```
 
-Returns a handlebars with all of the built in and provided handlers and partials provided.
+Returns a handlebars with all the built-in and provided handlers and partials provided.
 
 The `projectDir` is the path to a directory containing optional `partials` and `handlers` folders.
 
@@ -119,11 +119,11 @@ async function loadFileTemplate(
 
 The `pathString` tells where the template to load is stored.  The file contains the contents of the template.
 
-The `Handlebars` is a handlebars instance, typcially created with `prepareHandlebars`.
+The `Handlebars` is a handlebars instance, typically created with `prepareHandlebars`.
 
 You can optionally provide a `fileFilter` string to `loadFileTemplate` which is a glob.  `barbells` will then prepare a template for use in with the [geenee-rate](https://www.npmjs.com/package/geenee-rate) generator by adding a [geenee](https://www.npmjs.com/package/geenee) file info tag at the beginning of the template whenever a filename matches the `fileFilter`.
 
-`noFileInfo` suppresses generation of a file info tag.
+`noFileInfo` suppresses generation of a file info tag even if the filename matches the `fileFilter`.
 
 [//]: # ( ns__custom_end APIIntro )
 
