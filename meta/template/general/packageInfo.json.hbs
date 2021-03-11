@@ -11,7 +11,8 @@
   ],
   "homepage": "https://github.com/{{general.owner}}/{{general.repositoryName}}",
   "keywords": [
-    "ts-packrat"
+    "ts-packrat",
+    "geenee"
   ],
   "license": "{{general.license}}",
   "main": "lib/index.js",
@@ -19,11 +20,13 @@
   "repository": "{{general.owner}}/{{general.repositoryName}}",
   "scripts": {
     "build": "tsc",
+    "commit": "git-cz",
     "lint": "eslint \"src/**/*.ts\"",
     "lintfix": "eslint \"src/**/*.ts\" --fix",
     "test": "ava",
     "posttest": "eslint \"src/**/*.ts\"",
-    "prepack": "rm -rf lib && tsc -b"
+    "prepack": "rm -rf lib && tsc -b",
+    "semantic-release": "semantic-release"
   },
   "types": "lib/index.d.ts",
   "ava": {
@@ -33,5 +36,10 @@
     "require": [
       "ts-node/register"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

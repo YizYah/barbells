@@ -9,14 +9,13 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lintfix": "eslint \"src/**/*.ts\" --fix",
     "test": "ava",
-    "posttest": "nyc --extension .ts ava --forbid-only && eslint \"src/**/*.ts\"",
-    "prepack": "rm -rf lib && tsc -b"
+    "posttest": "eslint \"src/**/*.ts\"",
+    "prepack": "rm -rf lib && tsc -b",
+    "semantic-release": "semantic-release"
   },
   "keywords": [
-    "handlebars",
-    "helpers",
-    "partials",
-    "ts-packrat"
+    "ts-packrat",
+    "geenee"
   ],
   "author": "YizYah",
   "license": "MIT",
@@ -61,5 +60,10 @@
     "require": [
       "ts-node/register"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

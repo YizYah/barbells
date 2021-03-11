@@ -5,24 +5,28 @@
         "path": ".eslintrc.js",
         "lintRules": "\n        \"no-console\": [\"error\"],\n        \"@typescript-eslint/no-var-requires\": \"off\",\n        \"@typescript-eslint/explicit-module-boundary-types\": \"off\",\n        \"@typescript-eslint/ban-types\": \"off\",\n        \"@typescript-eslint/no-explicit-any\":\"off\",\n        \"@typescript-eslint/ban-ts-comment\": \"off\"\n        "
       },
+      ".gitignore": {
+        "path": ".gitignore",
+        "extra": "\n.idea\n"
+      },
       "README.md": {
         "path": "README.md",
         "beginning": "\n",
-        "description": "\nbarbells\n======\n\n",
+        "description": "\n![](src/custom/images/barbells.gif)\n\nsimple management of helpers and partials for handlebars\n",
         "afterDescription": "\n",
         "badges": "\n\n[//]: # ( ns__start_section usageSection )\n\n[![Version](https://img.shields.io/npm/v/barbells.svg)](https://npmjs.org/package/barbells)\n[![Downloads/week](https://img.shields.io/npm/dw/barbells.svg)](https://npmjs.org/package/barbells)\n[![License](https://img.shields.io/npm/l/barbells.svg)](https://github.com/YizYah/barbells/blob/master/package.json)\n\n[![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)\n[![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)\n",
-        "APIIntro": "\n# API\n",
-        "constantsIntro": "\n## General Constants and Commands\n"
+        "APIIntro": "\n\n# Why\n[Handlebars](https://handlebarsjs.com/guide/) is super simple, but there's a learning curve to getting it set up with template files, helpers and partials.\n\n# What\nA tool that provides:\n   1. the standard libraries of helpers out of the box\n   2. automatic registration of custom helpers and partials\n   3. a tool for loading a template from a file.\n\n# Basic Usage\nInclude the package:\n```\nnpm i barbells\n```\n\nThen:\n1. create a handlebars instance with all the handlebars helpers and partials for the project;\n2. use it by loading a template from a file.\n```\nconst {prepareHandlebars} = require('barbells')\nconst {loadFileTemplate} = require('barbells')\nconst projectDir = \"path/to/parentDir\" // where parentDir has optional `partials` and `helpers` directories\n\nconst Handlebars = await prepareHandlebars(projectDir)\n\nconst myContext = {foo: \"bar\"}  // an object with whatever you want...\ncond pathString = \"~/templates/myTemplate.hbs\"\n\nconst fileTemplate = await loadFileTemplate(pathString, null, Handlebars)\n\nconst fileText = await fileTemplate(context)\n\n```\n# Built In Handlers\n1. You have full use of two packages of helpers:\n* [handlebars-helpers](https://www.npmjs.com/package/handlebars-helpers)\n* [just-handlebars-helpers](https://www.npmjs.com/package/just-handlebars-helpers)\n\n  For instance, `{{capitalizeFirst 'super cat'}}` produces `Super cat` and `{{and value1 value2}}` will result in the `value1 && value2`.\n\n2. There are a few added helpers, really just for legacy usage:\n    * `{{safe text}}` shows `text` without escape characters.  That is helpful if you are getting unwanted escapes of certain special characters such as quote marks.\n    * `{{curly true}}` produces a left curly brace `{`,  {{curly false}} returns `}`.\n    \n  And if you want to use this with a [geenee](https://www.npmjs.com/package/geenee) template you can add the [geenee abbreviations](https://geenee.nostack.net/Making-Files-Customizable) as well.\n    \n# Adding Helpers\n3. The `helpers` directory should contain any additional helpers that you create.  Since `geenee-rate` is written with typescript, your helpers should be in typescript as well, with a `.ts` extension.\n\n   See [this example](https://github.com/YizYah/basicNsFrontTemplate/tree/master/helpers) for some ideas.\n\n# Adding Partials\nYou have access everywhere to the full list of partials in the `partials` directory.  A partial is specified within a Handlebars file of the same name (not counting the file extension).  You can add as many as you like, and create as many subdirectories as you need.  But, there are two naming constraints:\n1. The name of each partial must be unique.\n2. Each partial file should have an '.hbs' extension.\n\n[This example](https://github.com/YizYah/basicNsFrontTemplate/tree/master/partials) shows some subdirectories and a number of examples.  Many clauses that appear in multiple types of files are used.\n\n#API\n\n## prepareHandlebars function\n```\nprepareHandlebars(projectDir: string) \n```\n\nReturns a handlebars with all the built-in and provided handlers and partials provided.\n\nThe `projectDir` is the path to a directory containing optional `partials` and `handlers` folders.\n\n## loadFileTemplate function\n```\nasync function loadFileTemplate(\n  pathString: string, \n  Handlebars: any, \n  fileFilter: string|null, noFileInfo = false\n)\n```\n\nThe `pathString` tells where the template to load is stored.  The file contains the contents of the template.\n\nThe `Handlebars` is a handlebars instance, typically created with `prepareHandlebars`.\n\nYou can optionally provide a `fileFilter` string to `loadFileTemplate` which is a glob.  `barbells` will then prepare a template for use in with the [geenee-rate](https://www.npmjs.com/package/geenee-rate) generator by adding a [geenee](https://www.npmjs.com/package/geenee) file info tag at the beginning of the template whenever a filename matches the `fileFilter`.\n\n`noFileInfo` suppresses generation of a file info tag even if the filename matches the `fileFilter`.\n",
+        "constantsIntro": "\n\n"
       },
       "src/index.ts": {
-        "path": "src/index.ts",
+        "path": "lib/index.js",
         "beginning": "\nconst {loadFileTemplate} = require('./custom/loadFileTemplate')\nconst {prepareHandlebars} = require('./custom/prepareHandlebars')\n",
         "export": "\n    // replace this with your own export\n    module.exports = {\n        loadFileTemplate,\n        prepareHandlebars,\n    }\n    "
       },
       "test/index.test.ts": {
         "path": "test/index.test.ts",
         "customImports": "\n",
-        "general": "\ntest('general', t => {\n  // replace with whatever you'd like.  To start over with the default, remove everything including the\n});\n"
+        "general": "\ntest('general', t => {\n  t.not(typeof output, \"undefined\")\n});\n"
       }
     }
   },

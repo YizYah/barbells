@@ -1,0 +1,25 @@
+language: node_js
+
+branches:
+  only:
+    - main
+
+jobs:
+  include:
+    - stage: test
+      node_js:
+        - lts/*
+      script:
+        - "npm run lint"
+        - "npm run test"
+    - stage: release
+      node_js: lts/*
+#      script:
+#        - npm run build
+      deploy:
+        provider: script
+        skip_cleanup: true
+        on:
+          all_branches: true
+        script:
+          - npx semantic-release
