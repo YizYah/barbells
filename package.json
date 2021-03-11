@@ -9,9 +9,10 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lintfix": "eslint \"src/**/*.ts\" --fix",
     "test": "ava",
-    "posttest": "nyc --extension .ts ava --forbid-only && eslint \"src/**/*.ts\"",
+    "posttest": "npm run view-coverage && npm run lint",
     "prepack": "rm -rf lib && tsc -b",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "view-coverage": "nyc --extension .ts ava --forbid-only"
   },
   "keywords": [
     "ts-packrat",
@@ -65,6 +66,9 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test"
     }
   }
 }

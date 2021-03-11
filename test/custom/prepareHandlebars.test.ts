@@ -33,7 +33,7 @@ test('loadFileTemplate runs', async t => {
     const projectDir = __dirname + '/template';
     const Handlebars = await prepareHandlebars(projectDir)
   const pathString = projectDir + '/START_OF_FILE.hbs'
-  const loadedTemplate = loadFileTemplate(pathString, Handlebars, null)
-    t.deepEqual(loadedTemplate({}), '}');
+  const loadedTemplate = await loadFileTemplate(pathString, Handlebars, null)
+    t.regex(await loadedTemplate({}), /This file has been partially generated/);
   }
 );

@@ -1,0 +1,5 @@
+check-coverage: true
+branches: 50
+lines: 60
+functions: 40
+statements: 60
