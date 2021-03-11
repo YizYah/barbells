@@ -9,7 +9,7 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lintfix": "eslint \"src/**/*.ts\" --fix",
     "test": "ava",
-    "posttest": "eslint \"src/**/*.ts\"",
+    "posttest": "nyc --extension .ts ava --forbid-only && eslint \"src/**/*.ts\"",
     "prepack": "rm -rf lib && tsc -b",
     "semantic-release": "semantic-release"
   },
@@ -36,6 +36,7 @@
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.17.0",
+    "ghooks": "^2.0.4",
     "nyc": "^14.1.1",
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1"
