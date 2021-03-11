@@ -39,16 +39,26 @@ simple management of helpers and partials for handlebars
 
 [//]: # ( ns__custom_start APIIntro )
 
-# Why
+<!-- toc -->
+* [:clipboard: Why](#clipboard-why)
+* [:white_check_mark: What](#white_check_mark-what)
+* [:wrench: Basic Usage](#wrench-basic-usage)
+* [:paperclip: Built In Handlers](#paperclip-built-in-handlers)
+* [:thumbsup: Adding Helpers](#thumbsup-adding-helpers)
+* [:waxing_gibbous_moon: Adding Partials](#waxing_gibbous_moon-adding-partials)
+* [:cyclone: API](#cyclone-api)
+<!-- tocstop -->
+
+# <a name="clipboard-why"></a>:clipboard: Why
 [Handlebars](https://handlebarsjs.com/guide/) is super simple, but there's a learning curve to getting it set up with template files, helpers and partials.
 
-# What
+# <a name="white_check_mark-what"></a>:white_check_mark: What
 A tool that provides:
    1. the standard libraries of helpers out of the box
    2. automatic registration of custom helpers and partials
    3. a tool for loading a template from a file.
 
-# Basic Usage
+# <a name="wrench-basic-usage"></a>:wrench: Basic Usage
 Include the package:
 ```
 npm i barbells
@@ -72,7 +82,7 @@ const fileTemplate = await loadFileTemplate(pathString, null, Handlebars)
 const fileText = await fileTemplate(context)
 
 ```
-# Built In Handlers
+# <a name="paperclip-built-in-handlers"></a>:paperclip: Built In Handlers
 1. You have full use of two packages of helpers:
 * [handlebars-helpers](https://www.npmjs.com/package/handlebars-helpers)
 * [just-handlebars-helpers](https://www.npmjs.com/package/just-handlebars-helpers)
@@ -85,19 +95,19 @@ const fileText = await fileTemplate(context)
     
   And if you want to use this with a [geenee](https://www.npmjs.com/package/geenee) template you can add the [geenee abbreviations](https://geenee.nostack.net/Making-Files-Customizable) as well.
     
-# Adding Helpers
+# <a name="thumbsup-adding-helpers"></a>:thumbsup: Adding Helpers
 3. The `helpers` directory should contain any additional helpers that you create.  Since `geenee-rate` is written with typescript, your helpers should be in typescript as well, with a `.ts` extension.
 
    See [this example](https://github.com/YizYah/basicNsFrontTemplate/tree/master/helpers) for some ideas.
 
-# Adding Partials
+# <a name="waxing_gibbous_moon-adding-partials"></a>:waxing_gibbous_moon: Adding Partials
 You have access everywhere to the full list of partials in the `partials` directory.  A partial is specified within a Handlebars file of the same name (not counting the file extension).  You can add as many as you like, and create as many subdirectories as you need.  But, there are two naming constraints:
 1. The name of each partial must be unique.
 2. Each partial file should have an '.hbs' extension.
 
 [This example](https://github.com/YizYah/basicNsFrontTemplate/tree/master/partials) shows some subdirectories and a number of examples.  Many clauses that appear in multiple types of files are used.
 
-#API
+# <a name="cyclone-api"></a>:cyclone: API
 
 ## prepareHandlebars function
 ```
