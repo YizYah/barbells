@@ -24,12 +24,15 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lintfix": "eslint \"src/**/*.ts\" --fix",
     "test": "ava",
-    "posttest": "eslint \"src/**/*.ts\"",
+    "posttest": "npm run view-coverage && npm run lint",
     "prepack": "rm -rf lib && tsc -b",
     "semantic-release": "semantic-release"
   },
   "types": "lib/index.d.ts",
   "ava": {
+    "files": [
+      "test/**/*.test.ts"
+    ],
     "extensions": [
       "ts"
     ],
@@ -40,6 +43,9 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test"
     }
   }
 }

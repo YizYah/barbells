@@ -1,7 +1,7 @@
 {
   "name": "barbells",
   "version": "1.0.1",
-  "description": "simple management of helpers and partials for handlebars",
+  "description": "",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",

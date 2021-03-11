@@ -152,6 +152,7 @@ setupSequence:
     - commitizen
     - cz-conventional-changelog
     - semantic-release
+    - ghooks
 
 ignore:
   - test/custom
