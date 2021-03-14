@@ -1,8 +1,7 @@
 const path = require('path')
-const Handlebars = require('handlebars')
 const fs = require('fs-extra')
 
-function registerHelper(path: string, name: string) {
+function registerHelper(path: string, name: string, Handlebars: any) {
   // Require helper
   const functionDef = require(path)[name]
 
@@ -10,25 +9,21 @@ function registerHelper(path: string, name: string) {
   Handlebars.registerHelper(name, functionDef)
 }
 
-export async function registerHelpers(dir: string) {
+export async function registerHelpers(dir: string, Handlebars: any) {
   if (!await fs.pathExists(dir)) return
   const helpers: [string] = await fs.readdir(dir)
-  try {
-    await Promise.all(helpers.map(async fileName => {
-      const filePath = `${dir}/${fileName}`
-      const fileType = path.parse(filePath).ext
+  await Promise.all(helpers.map(async fileName => {
+    const filePath = `${dir}/${fileName}`
+    const fileType = path.parse(filePath).ext
 
-      if (fs.lstatSync(filePath).isDirectory()) {
-        await registerHelpers(filePath)
-        return
-      }
+    if (fs.lstatSync(filePath).isDirectory()) {
+      await registerHelpers(filePath, Handlebars)
+      return
+    }
 
-      if (fileType === '.ts') {
-        const helperName = path.parse(filePath).name
-        registerHelper(filePath, helperName)
-      }
-    },))
-  } catch (error) {
-    throw new Error(`error registering helper: ${error}`)
-  }
+    if (fileType === '.ts') {
+      const helperName = path.parse(filePath).name
+      registerHelper(filePath, helperName, Handlebars)
+    }
+  }))
 }
