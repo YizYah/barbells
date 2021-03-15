@@ -9,8 +9,9 @@
     "lint": "eslint \"src/**/*.ts\"",
     "lintfix": "eslint \"src/**/*.ts\" --fix",
     "test": "ava",
-    "posttest": "npm run view-coverage && npm run lint",
+    "posttest": "npm run view-coverage && npm run report && npm run lint",
     "prepack": "rm -rf lib && tsc -b",
+    "report": "nyc report --reporter=json",
     "semantic-release": "semantic-release",
     "view-coverage": "nyc --extension .ts ava --forbid-only"
   },
