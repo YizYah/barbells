@@ -21,7 +21,7 @@ simple management of helpers and partials for handlebars
 [//]: # ( ns__custom_start badges )
 
 [//]: # ( ns__start_section usageSection )
-
+[![codecov](https://codecov.io/gh/YizYah/barbells/branch/main/graph/badge.svg?token=G5W08HMFMM)](https://codecov.io/gh/YizYah/barbells)
 [![Version](https://img.shields.io/npm/v/barbells.svg)](https://npmjs.org/package/barbells)
 [![Downloads/week](https://img.shields.io/npm/dw/barbells.svg)](https://npmjs.org/package/barbells)
 [![License](https://img.shields.io/npm/l/barbells.svg)](https://github.com/YizYah/barbells/blob/master/package.json)

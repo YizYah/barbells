@@ -5,6 +5,12 @@ branches:
   only:
     - main
 
+scripts:
+  - npm install codecov -g
+
+after_success:
+  - codecov -f coverage/*.json
+
 jobs:
   include:
     - stage: test
