@@ -45,8 +45,8 @@ simple management of helpers and partials for handlebars
 * [:wrench: Basic Usage](#wrench-basic-usage)
 * [:paperclip: Built In Handlers](#paperclip-built-in-handlers)
 * [:thumbsup: Adding Helpers](#thumbsup-adding-helpers)
-* [:waxing_gibbous_moon: Adding Partials](#waxing_gibbous_moon-adding-partials)
-* [:cyclone: API](#cyclone-api)
+* [:computer: Adding Partials](#computer-adding-partials)
+* [:ledger: API](#ledger-api)
 <!-- tocstop -->
 
 # <a name="clipboard-why"></a>:clipboard: Why
@@ -100,14 +100,14 @@ const fileText = await fileTemplate(context)
 
    See [this example](https://github.com/YizYah/basicNsFrontTemplate/tree/master/helpers) for some ideas.
 
-# <a name="waxing_gibbous_moon-adding-partials"></a>:waxing_gibbous_moon: Adding Partials
+# <a name="computer-adding-partials"></a>:computer: Adding Partials
 You have access everywhere to the full list of partials in the `partials` directory.  A partial is specified within a Handlebars file of the same name (not counting the file extension).  You can add as many as you like, and create as many subdirectories as you need.  But, there are two naming constraints:
 1. The name of each partial must be unique.
 2. Each partial file should have an '.hbs' extension.
 
 [This example](https://github.com/YizYah/basicNsFrontTemplate/tree/master/partials) shows some subdirectories and a number of examples.  Many clauses that appear in multiple types of files are used.
 
-# <a name="cyclone-api"></a>:cyclone: API
+# <a name="ledger-api"></a>:ledger: API
 
 ## prepareHandlebars function
 ```
