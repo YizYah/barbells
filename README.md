@@ -91,7 +91,7 @@ const fileText = await fileTemplate(context)
 
 2. There are a few added helpers, really just for legacy usage:
     * `{{safe text}}` shows `text` without escape characters.  That is helpful if you are getting unwanted escapes of certain special characters such as quote marks.
-    * `{{curly true}}` produces a left curly brace `{`,  {{curly false}} returns `}`.
+    * `{{curly true}}` produces a left curly brace `{`,  {{curly}} returns `}`.
     
   And if you want to use this with a [geenee](https://www.npmjs.com/package/geenee) template you can add the [geenee abbreviations](https://geenee.nostack.net/Making-Files-Customizable) as well.
     
