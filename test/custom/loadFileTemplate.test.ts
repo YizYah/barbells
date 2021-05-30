@@ -22,6 +22,6 @@ test('loadFileTemplate catches errors', async t => {
   const error = await t.throwsAsync(async () => {
     await loadFileTemplate(pathString, Handlebars, fileFilter)
   })
-  console.log (`error =${JSON.stringify(error)}`)
+
   t.regex(error.message, /no such file/)
 })

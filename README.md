@@ -1,5 +1,7 @@
 
+
 [//]: # ( ns__file unit: standard, comp: README.md )
+
 
 [//]: # ( ns__custom_start beginning )
 
@@ -8,9 +10,10 @@
 [//]: # ( ns__start_section intro )
 
 [//]: # ( ns__custom_start description )
+
 ![](src/custom/images/barbells.gif)
 
-simple management of helpers and partials for handlebars
+simple file management for handlebars, including helpers, partials and template files
 
 [//]: # ( ns__custom_end description )
 
@@ -54,7 +57,7 @@ simple management of helpers and partials for handlebars
 
 # <a name="white_check_mark-what"></a>:white_check_mark: What
 A tool that provides:
-   1. the standard libraries of helpers out of the box
+   1. the popular libraries of helpers out of the box
    2. automatic registration of custom helpers and partials
    3. a tool for loading a template from a file.
 
@@ -91,7 +94,7 @@ const fileText = await fileTemplate(context)
 
 2. There are a few added helpers, really just for legacy usage:
     * `{{safe text}}` shows `text` without escape characters.  That is helpful if you are getting unwanted escapes of certain special characters such as quote marks.
-    * `{{curly true}}` produces a left curly brace `{`,  {{curly}} returns `}`. 
+    * `{{openCurly}}` produces a left curly brace `{`,  {{closeCurly}} returns `}`. 
     
   And if you want to use this with a [geenee](https://www.npmjs.com/package/geenee) template you can add the [geenee abbreviations](https://geenee.nostack.net/Making-Files-Customizable) as well.
     
