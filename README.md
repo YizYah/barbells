@@ -1,5 +1,7 @@
 
+
 [//]: # ( ns__file unit: standard, comp: README.md )
+
 
 [//]: # ( ns__custom_start beginning )
 
@@ -8,6 +10,7 @@
 [//]: # ( ns__start_section intro )
 
 [//]: # ( ns__custom_start description )
+
 ![](src/custom/images/barbells.gif)
 
 simple file management for handlebars, including helpers, partials and template files

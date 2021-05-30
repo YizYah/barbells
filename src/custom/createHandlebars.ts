@@ -5,6 +5,17 @@ export function createHandlebars() {
   require('handlebars-helpers')({
     handlebars: Handlebars,
   })
+
+  Handlebars.registerHelper('openCurly', function () {
+    return '{'
+  })
+
+  Handlebars.registerHelper('closeCurly', function () {
+    return '}'
+  })
+
+
+  // this is maintained for backward compatibility
   Handlebars.registerHelper('curly', function (object: any, open: any) {
     return open ? '{' : '}'
   })
