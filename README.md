@@ -10,7 +10,7 @@
 [//]: # ( ns__custom_start description )
 ![](src/custom/images/barbells.gif)
 
-simple management of helpers and partials for handlebars
+simple file management for handlebars, including helpers, partials and template files
 
 [//]: # ( ns__custom_end description )
 
@@ -54,7 +54,7 @@ simple management of helpers and partials for handlebars
 
 # <a name="white_check_mark-what"></a>:white_check_mark: What
 A tool that provides:
-   1. the standard libraries of helpers out of the box
+   1. the popular libraries of helpers out of the box
    2. automatic registration of custom helpers and partials
    3. a tool for loading a template from a file.
 
